@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<!-- ===================== MAIN ===================== -->
+<main>
+
+<!-- Banner -->
+<div class="section banner-wrapper mt-5 position-relative overflow-hidden mx-auto rounded-4 scroll-animate fade-in">
+    <div class="bg-overlay"></div>
+
+    <div class="r-container h-100 position-relative">
+        <div class="banner-inner d-flex flex-column w-100 h-100 justify-content-center mx-auto align-items-center text-white gap-3">
+
+            <h2 class="m-0 text-white banner-heading">Services</h2>
+
+            <div class="sf-breadcrumb-wrapper">
+                <a href="{% url 'index' %}" class="sf-breadcrumb-home">Home</a>
+                <span class="sf-breadcrumb-sep">›</span>
+                <span class="sf-breadcrumb-current">Services</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <!-- ===================== SERVICE DETAILS ===================== -->
+
+
+    <section class="services-intro-section scroll-animate fade-up">
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+        <div class="services-intro text-center">
+
+            <span class="services-badge">
+                <i class="fa fa-briefcase"></i> OUR SERVICES
+            </span>
+
+            <h2 class="services-title">Our Services</h2>
+
+            <p class="services-description">
+                At LoanSphere Finance, we deliver transparent, technology-driven financial
+                solutions designed to support individuals and businesses at every stage of growth.
+                Our services combine expert advisory, competitive rates, and streamlined digital
+                processes.
+            </p>
+
+        </div>
+        </div>
+    </div>
+    </div>
+
+</section>
+
+
+
+    <div class="section scroll-animate fade-up">
+        <div class="r-container">
+            <div class="row row-cols-xl-2 row-cols-1">
+
+                <!-- LEFT CONTENT -->
+                <div class="col col-xl-8 scroll-animate fade-left">
+                    <div class="d-flex flex-column gap-4">
+
+                        <div class="position-relative mb-3 scroll-animate zoom-in">
+                            <img src="{% static 'image/img34.png' %}" alt="" class="img-fluid rounded-4">
+                            <div class="position-absolute bottom-0 left-0 p-5 bg-accent-primary"
+                                 style="border-top-right-radius: 20px;">
+                                <h3>Real estate investment</h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDEBAR -->
+                <div class="col col-xl-4 scroll-animate fade-right">
+                    <div class="d-flex flex-column gap-4">
+
+                        <div class="p-5 d-flex flex-column gap-3 bg-grey-accent rounded-4 scroll-animate fade-up">
+                            <ul class="list-group gap-3">
+                                <li class="list-group-item border-0 p-0">
+                                    <a href="#" class="link d-flex justify-content-between align-items-center py-3 px-4">
+                                        Financial Planning
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0 p-0">
+                                    <a href="#" class="link d-flex justify-content-between align-items-center py-3 px-4">
+                                        Portfolio Management
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0 p-0">
+                                    <a href="#" class="link d-flex justify-content-between align-items-center py-3 px-4">
+                                        Wealth Management
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0 p-0">
+                                    <a href="#" class="link active d-flex justify-content-between align-items-center py-3 px-4">
+                                        Real Estate Investment
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0 p-0">
+                                    <a href="#" class="link d-flex justify-content-between align-items-center py-3 px-4">
+                                        Tax Optimization
+                                    </a>
+                                </li>
+                                <li class="list-group-item border-0 p-0">
+                                    <a href="#" class="link d-flex justify-content-between align-items-center py-3 px-4">
+                                        Retirement Planning
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="why-services-premium scroll-animate fade-up">
+
+    <div class="container-fluid px-5">
+
+        <div class="row align-items-center g-5">
+
+            <!-- LEFT -->
+            <div class="col-lg-6 scroll-animate fade-right">
+
+                <span class="why-premium-badge">
+                    <i class="fa fa-award"></i> WHY CHOOSE US
+                </span>
+
+                <h2 class="why-premium-title">
+                    Why Choose Our Services?
+                </h2>
+
+                <p class="why-premium-text">
+                    Our approach combines regulatory discipline, advanced analytics,
+                    and client-focused delivery to provide dependable financial
+                    solutions at scale.
+                </p>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="col-lg-6 scroll-animate fade-left">
+
+                <div class="why-premium-list">
+
+                    <div class="why-premium-item">
+                        <i class="fa fa-shield-alt"></i>
+                        <span>Transparent pricing model</span>
+                    </div>
+
+                    <div class="why-premium-item">
+                        <i class="fa fa-scale-balanced"></i>
+                        <span>RBI-aligned compliance standards</span>
+                    </div>
+
+                    <div class="why-premium-item">
+                        <i class="fa fa-user-tie"></i>
+                        <span>Experienced financial professionals</span>
+                    </div>
+
+                    <div class="why-premium-item">
+                        <i class="fa fa-handshake"></i>
+                        <span>Customer-centric approach</span>
+                    </div>
+
+                    <div class="why-premium-item">
+                        <i class="fa fa-microchip"></i>
+                        <span>AI-enabled credit evaluation</span>
+                    </div>
+
+                    <div class="why-premium-item">
+                        <i class="fa fa-globe"></i>
+                        <span>Nationwide service reach</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+{% endblock %}

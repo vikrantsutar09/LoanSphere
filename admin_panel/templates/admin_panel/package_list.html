@@ -1,0 +1,113 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Loan Packages{% endblock %}
+
+{% block content %}
+
+<div class="loan-head-wrap">
+
+    <!-- Header -->
+    <div class="page-head d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h3 class="fw-bold mb-1">Package Heads</h3>
+            <p class="text-muted mb-0">Manage primary Package groups</p>
+        </div>
+
+        <div class="action-buttons">
+
+    <!-- Export Excel -->
+    <a href="{% url 'admin_panel:package_export_excel' %}"
+       class="btn btn-success btn-sm">
+
+        <i class="fa-solid fa-file-excel"></i>
+        <span>Export Excel</span>
+
+    </a>
+
+    <!-- Add Loan Head -->
+    <a href="{% url 'admin_panel:package_create' %}"
+       class="btn btn-warning btn-sm">
+
+        <i class="fa-solid fa-plus"></i>
+        <span>Add Packages</span>
+
+    </a>
+
+</div>
+
+    </div>
+
+    <!-- Card Table -->
+    <div class="card border-0 shadow-sm">
+
+        <div class="card-body p-0">
+
+            <table class="table align-middle mb-0">
+
+                <thead class="bg-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Package</th>
+                        <th>Category</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for pkg in packages %}
+                    <tr class="row-hover">
+
+                        <td>{{ forloop.counter }}</td>
+
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="icon-circle text-primary">
+                                    <i class="fa fa-box"></i>
+                                </span>
+                                {{ pkg.title }}
+                            </div>
+                        </td>
+
+                        <td class="text-muted">
+                            {{ pkg.category.name }}
+                        </td>
+
+                        <td class="text-end">
+
+                            <!-- ✅ FIXED EDIT -->
+                            <a href="{% url 'admin_panel:package_edit' pkg.id %}"
+                               class="btn btn-sm btn-outline-primary rounded-pill me-1">
+                                <i class="fa fa-edit"></i>
+                            </a>
+
+                            <!-- ✅ FIXED DELETE -->
+                            <a href="{% url 'admin_panel:package_delete' pkg.id %}"
+                               class="btn btn-sm btn-outline-danger rounded-pill"
+                               onclick="return confirm('Delete this package?');">
+                                <i class="fa fa-trash"></i>
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center text-muted py-4">
+                            No packages available
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "admin_panel/base_admin.html" %}
+{% load static %}
+{% block title %}Manage Category{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6 col-md-8">
+
+            <div class="simple-admin-card">
+
+                <!-- Header -->
+                <div class="simple-header mb-4">
+                    <h4 class="fw-bold mb-1">Manage Category</h4>
+                    <p class="text-muted small">
+                        Add or update loan category details
+                    </p>
+                </div>
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+
+                    <!-- Name -->
+                    <div class="mb-3">
+                        {{ form.name.label_tag }}
+                        {{ form.name }}
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        {{ form.description.label_tag }}
+                        {{ form.description }}
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-3 mt-4">
+
+                        <!-- ✅ FIXED CANCEL BUTTON -->
+                        <a href="{% url 'admin_panel:category_list' %}"
+                           class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+
+                        <button type="submit"
+                                class="btn btn-primary px-4">
+                            Save
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

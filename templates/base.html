@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Smart Finance{% endblock %}</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'image/favicon_io/favicon.ico' %}">
+
+</head>
+<body>
+
+{% include 'includes/navbar.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'includes/footer.html' %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visible/1.2.0/jquery.visible.min.js"></script>
+
+<!-- Page specific scripts -->
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

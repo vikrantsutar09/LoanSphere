@@ -1,0 +1,108 @@
+{% extends "admin_panel/base_admin.html" %}
+{% load static %}
+{% block title %}Manage Package{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7 col-md-9">
+
+            <div class="simple-admin-card">
+
+                <!-- Header -->
+                <div class="simple-header mb-4">
+                    <h4 class="fw-bold mb-1">Manage Loan Package</h4>
+                    <p class="text-muted small">
+                        Add or update pricing plan shown on website
+                    </p>
+                </div>
+
+                <!-- FORM -->
+                <form method="post" novalidate>
+
+                    {% csrf_token %}
+
+                    <div class="simple-fields">
+
+                        <div class="mb-3">
+                            {{ form.category.label_tag }}
+                            {{ form.category }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.title.label_tag }}
+                            {{ form.title }}
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.min_amount.label_tag }}
+                                {{ form.min_amount }}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.max_amount.label_tag }}
+                                {{ form.max_amount }}
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.tenure_years.label_tag }}
+                                {{ form.tenure_years }}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                {{ form.interest_rate.label_tag }}
+                                {{ form.interest_rate }}
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.features.label_tag }}
+                            {{ form.features }}
+                            <small class="text-muted">
+                                Example: Quick approval, EMI calculator, Digital process
+                            </small>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            {{ form.is_active }}
+                            {{ form.is_active.label_tag }}
+                        </div>
+
+                    </div>
+
+                    <!-- ACTIONS -->
+                    <div class="d-flex justify-content-end gap-3 mt-4">
+
+                        <a href="{% url 'admin_panel:package_list' %}"
+                           class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+
+                        <button type="submit"
+                                class="btn btn-primary px-4">
+                            Save Package
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

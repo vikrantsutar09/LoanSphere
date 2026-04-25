@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Loan Types{% endblock %}
+
+{% block content %}
+
+
+<!-- Banner -->
+<div class="section banner-wrapper mt-5 position-relative overflow-hidden mx-auto rounded-4 scroll-animate fade-in">
+    <div class="bg-overlay"></div>
+
+    <div class="r-container h-100 position-relative">
+        <div class="banner-inner d-flex flex-column w-100 h-100 justify-content-center mx-auto align-items-center text-white gap-3">
+
+            <h2 class="m-0 text-white banner-heading">Documents</h2>
+
+            <div class="sf-breadcrumb-wrapper">
+                <a href="{% url 'index' %}" class="sf-breadcrumb-home">Home</a>
+                <span class="sf-breadcrumb-sep">›</span>
+                <span class="sf-breadcrumb-current">Documents</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- ================= DOCUMENTS SECTION ================= -->
+<section class="doc-section scroll-animate fade-in">
+    <div class="container-fluid px-5">
+
+        <div class="text-center m-5">
+            <h2 class="doc-title fw-bold">Required Documents</h2>
+            <p class="doc-subtitle">Complete documentation for fast and secure loan approval</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- 1 Identity Proof -->
+            <div class="col-lg-4 col-md-4 mt-5 g-4">
+                <div class="doc-card scroll-animate fade-in">
+                    <div class="doc-header">
+                        <i class="fa-solid fa-id-card doc-icon"></i>
+                        <h5>Identity Proof</h5>
+                    </div>
+
+                    <ul>
+                        <li>Aadhaar Card</li>
+                        <li>PAN Card</li>
+                        <li>Passport / Voter ID</li>
+                        <li>Driving License</li>
+                    </ul>
+
+                    {% comment %} <input type="file" class="form-control"> {% endcomment %}
+                </div>
+            </div>
+
+            <!-- 2 Address Proof -->
+            <div class="col-lg-4 col-md-4 mt-5 g-4">
+                <div class="doc-card scroll-animate fade-in">
+                    <div class="doc-header">
+                        <i class="fa-solid fa-house doc-icon"></i>
+                        <h5>Address Proof</h5>
+                    </div>
+
+                    <ul>
+                        <li>Electricity Bill</li>
+                        <li>Bank Statement</li>
+                        <li>Ration Card</li>
+                        <li>Rent Agreement</li>
+                    </ul>
+
+                    {% comment %} <input type="file" class="form-control"> {% endcomment %}
+                </div>
+            </div>
+
+            <!-- 3 Financial Documents -->
+            <div class="col-lg-4 col-md-4 mt-5 g-4">
+                <div class="doc-card scroll-animate fade-in">
+                    <div class="doc-header">
+                        <i class="fa-solid fa-coins doc-icon"></i>
+                        <h5>Financial Documents</h5>
+                    </div>
+
+                    <ul>
+                        <li>ITR (2–3 Years)</li>
+                        <li>Bank Statement (6 Months)</li>
+                        <li>Balance Sheet</li>
+                        <li>Profit & Loss Statement</li>
+                    </ul>
+
+                    {% comment %} <input type="file" class="form-control"> {% endcomment %}
+                </div>
+            </div>
+
+            <!-- 4 Employment Proof -->
+            <div class="col-lg-4 col-md-4 mt-5 g-4">
+                <div class="doc-card scroll-animate fade-in">
+                    <div class="doc-header">
+                        <i class="fa-solid fa-briefcase doc-icon"></i>
+                        <h5>Employment Proof</h5>
+                    </div>
+
+                    <ul>
+                        <li>Salary Slips (3 Months)</li>
+                        <li>Appointment Letter</li>
+                        <li>Employee ID Card</li>
+                        <li>Form 16</li>
+                    </ul>
+
+                    {% comment %} <input type="file" class="form-control"> {% endcomment %}
+                </div>
+            </div>
+
+            <!-- 5 Business Proof -->
+            <div class="col-lg-4 col-md-4 mt-5 g-4">
+                <div class="doc-card scroll-animate fade-in">
+                    <div class="doc-header">
+                        <i class="fa-solid fa-building doc-icon"></i>
+                        <h5>Business Proof</h5>
+                    </div>
+
+                    <ul>
+                        <li>GST Certificate</li>
+                        <li>Shop Act License</li>
+                        <li>Company Registration</li>
+                        <li>Partnership Deed</li>
+                    </ul>
+
+                    {% comment %} <input type="file" class="form-control"> {% endcomment %}
+                </div>
+            </div>
+
+            <!-- 6 Other Documents -->
+            <div class="col-lg-4 col-md-4 mt-5 g-4">
+                <div class="doc-card scroll-animate fade-in">
+                    <div class="doc-header">
+                        <i class="fa-solid fa-folder-open doc-icon"></i>
+                        <h5>Other Documents</h5>
+                    </div>
+
+                    <ul>
+                        <li>Loan Application Form</li>
+                        <li>Guarantor Details</li>
+                        <li>Property Papers</li>
+                        <li>Signed Agreement</li>
+                    </ul>
+
+                    {% comment %} <input type="file" class="form-control"> {% endcomment %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= END DOCUMENTS SECTION ================= -->
+
+
+
+{% endblock %}

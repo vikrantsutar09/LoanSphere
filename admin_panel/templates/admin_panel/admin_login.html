@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Admin Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="{% static 'image/favicon_io/favicon.ico' %}">
+
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+
+</head>
+
+<body>
+
+<div class="admin-login-wrapper">
+
+    <div class="admin-login-card">
+
+        <!-- LEFT PANEL -->
+        <div class="login-left">
+
+            <h2>LoanSphere</h2>
+
+            <p>
+                Securely manage loan heads, categories,
+                packages and system configurations.
+            </p>
+
+        </div>
+
+
+        <!-- RIGHT PANEL -->
+        <div class="login-right">
+
+            <h3>Admin Panel Login</h3>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="input-group">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Admin Email"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

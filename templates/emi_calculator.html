@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}EMI Calculator{% endblock %}
+
+{% block content %}
+
+<!-- Banner -->
+<div class="section banner-wrapper mt-5 position-relative overflow-hidden mx-auto rounded-4 scroll-animate fade-in">
+    <div class="bg-overlay"></div>
+
+    <div class="r-container h-100 position-relative">
+        <div class="banner-inner d-flex flex-column w-100 h-100 justify-content-center mx-auto align-items-center text-white gap-3">
+
+            <h2 class="m-0 text-white banner-heading">EMI Calculator</h2>
+
+            <div class="sf-breadcrumb-wrapper">
+                <a href="{% url 'index' %}" class="sf-breadcrumb-home">Home</a>
+                <span class="sf-breadcrumb-sep">›</span>
+                <span class="sf-breadcrumb-current">EMI Calculator</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ===================== INFO SECTION ===================== -->
+<section class="emi-advanced-section scroll-animate fade-up">
+    <div class="emi-overlay"></div>
+
+    <div class="container position-relative">
+        <div class="text-center emi-header scroll-animate zoom-in">
+            <span class="emi-chip">LoanSphere</span>
+            <h1 class="emi-title">EMI Calculator</h1>
+            <p class="emi-subtitle">
+                The LoanSphere EMI Calculator allows you to estimate your monthly repayments before applying.
+                Enter the loan amount, interest rate, and tenure to understand your repayment obligation clearly.
+            </p>
+        </div>
+
+        <div class="row justify-content-center g-4 mt-4">
+
+            <!-- LEFT CARD -->
+            <div class="col-lg-5">
+                <div class="emi-glass-card scroll-animate fade-left">
+                    <h5 class="emi-card-heading">Personal Loan Disclosure</h5>
+
+                    <div class="emi-info">
+                        <p><strong>Interest Rate</strong><br>7.99% – 12% p.a.</p>
+                        <p><strong>Eligibility</strong><br>KYC + Income validation required</p>
+                        <p><strong>Tenure</strong><br>12 to 120 months</p>
+                        <p><strong>APR</strong><br>Min 7.99% | Max 12%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT CARD -->
+            <div class="col-lg-5">
+                <div class="emi-glass-card scroll-animate fade-right">
+                    <h5 class="emi-card-heading">Why Choose LoanSphere?</h5>
+
+                    <ul class="emi-feature-list">
+                        <li>Loan up to ₹20,00,000</li>
+                        <li>Flexible tenure up to 10 years</li>
+                        <li>No pre-closure charges</li>
+                        <li>100% digital & paperless</li>
+                        <li>Transparent pricing</li>
+                        <li>Trusted NBFC since 2017</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== EMI CALCULATOR ===================== -->
+<section class="emi-section scroll-animate fade-up">
+    <div class="emi-container">
+
+        <!-- FORM -->
+        <div class="emi-form-card scroll-animate fade-up">
+            <h2>EMI Calculator</h2>
+
+            <div class="emi-field">
+                <label>Loan Amount (₹)</label>
+                <input type="number" id="loanAmount" placeholder="500000">
+            </div>
+
+            <div class="emi-field">
+                <label>Interest Rate (% per annum)</label>
+                <input type="number" id="interestRate" placeholder="7.9">
+            </div>
+
+            <div class="emi-field">
+                <label>Loan Tenure (Months)</label>
+                <input type="number" id="loanTenure" placeholder="60">
+            </div>
+
+            <button type="button" class="emi-btn" onclick="calculateEMI()">
+                Calculate EMI
+            </button>
+        </div>
+
+        <!-- RESULT -->
+        <div class="emi-result-card scroll-animate fade-right">
+            <h3>Monthly EMI</h3>
+            <div class="emi-value" id="monthlyEmi">₹0.00</div>
+
+            <div class="emi-summary">
+                <div>
+                    <span>Total Interest</span>
+                    <strong id="totalInterest">₹0.00</strong>
+                </div>
+                <div>
+                    <span>Total Repayment</span>
+                    <strong id="totalPayment">₹0.00</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

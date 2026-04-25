@@ -1,0 +1,115 @@
+{% extends "loan_head/base_loan_head.html" %}
+{% block title %}Document Verification{% endblock %}
+
+{% block content %}
+<div class="loan-head fade-up">
+
+<h3 class="page-anim-title">Document Verification</h3>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="table-card m-5 page-anim-box">
+
+<table class="table align-middle text-center">
+
+<thead>
+<tr>
+    <th>#</th>
+    <th>Customer</th>
+    <th>Document</th>
+    <th>Preview</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for key, docs in grouped_documents.items %}
+
+<!-- 🔹 CUSTOMER HEADER -->
+<tr class="table-primary text-center">
+    <td colspan="6">
+        <strong>
+            <i class="fa fa-user"></i> {{ docs.0.loan.full_name }} |
+            <i class="fa fa-envelope"></i> {{ docs.0.loan.email }} |
+            <i class="fa fa-phone"></i> {{ docs.0.loan.mobile }}
+        </strong>
+    </td>
+</tr>
+
+{% for doc in docs %}
+
+<tr>
+
+    <td>{{ forloop.counter }}</td>
+
+    <td>{{ doc.loan.full_name }}</td>
+
+    <td>{{ doc.document_type }}</td>
+
+    <td>
+        {% if doc.file %}
+            <a href="{{ doc.file.url }}" target="_blank" class="btn btn-dark btn-sm">
+                <i class="bi bi-eye-fill"></i> View
+            </a>
+        {% else %}
+            <span class="text-muted">No File</span>
+        {% endif %}
+    </td>
+
+    <!-- STATUS -->
+    <td>
+        {% if doc.status == "Approved" %}
+            <span class="badge bg-success">
+                <i class="bi bi-check-circle-fill"></i> Approved
+            </span>
+
+        {% elif doc.status == "Rejected" %}
+            <span class="badge bg-danger">
+                <i class="bi bi-x-circle-fill"></i> Rejected
+            </span>
+
+        {% else %}
+            <span class="badge bg-warning text-dark">
+                <i class="bi bi-hourglass-split"></i> Pending
+            </span>
+        {% endif %}
+    </td>
+
+    <!-- ACTION -->
+    <td>
+        <a href="{% url 'loan_head:update_document' doc.id 'Approved' %}" 
+           class="btn btn-success btn-sm me-1">
+           <i class="bi bi-check-lg"></i> Approve
+        </a>
+
+        <a href="{% url 'loan_head:update_document' doc.id 'Rejected' %}" 
+           class="btn btn-danger btn-sm">
+           <i class="bi bi-x-lg"></i> Reject
+        </a>
+    </td>
+
+</tr>
+
+{% endfor %}
+
+{% empty %}
+<tr>
+    <td colspan="6">No documents found</td>
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+{% endblock %}

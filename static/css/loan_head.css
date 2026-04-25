@@ -1,0 +1,402 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #F4F6FB;
+}
+
+/* ===============================
+   SIDEBAR
+================================ */
+
+.loan-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: linear-gradient(180deg, #0F1F3D, #1A3263);
+    padding: 25px 18px;
+    color: white;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 15px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #d9e4ff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar-link:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.sidebar-link.active {
+    background: rgba(255,255,255,0.15);
+}
+
+/* ===============================
+   MAIN LAYOUT
+================================ */
+
+.loan-main {
+    margin-left: 260px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.loan-content {
+    padding: 40px;
+    flex: 1;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.loan-header {
+    background: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.role-badge {
+    background: #e0e7ff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.btn-view {
+    background: #1A3263;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-view:hover {
+    background: #2C4F9E;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+.loan-footer {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* ===============================
+   METRIC CARDS
+================================ */
+
+.metric-box {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: 0.3s ease;
+}
+
+.metric-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.metric-icon {
+    width: 55px;
+    height: 55px;
+    background: rgba(26, 50, 99, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #1A3263;
+}
+
+.metric-content span {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #6b7280;
+}
+
+.metric-content h2 {
+    margin: 5px 0 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1A3263;
+}
+
+/* ===============================
+   LOGIN PAGE
+================================ */
+
+body.auth-bg {
+    background: linear-gradient(135deg, #0F1F3D, #1A3263);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-container {
+    display: flex;
+    width: 850px;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+
+.auth-left {
+    flex: 1;
+    background: linear-gradient(135deg, #1A3263, #2C4F9E);
+    color: white;
+    padding: 60px 40px;
+}
+
+.auth-right {
+    flex: 1;
+    background: #F4F6FB;
+    padding: 60px 40px;
+}
+
+
+/* ===============================
+   LOGIN PAGE IMPROVED
+================================ */
+
+body.auth-bg {
+    background: linear-gradient(135deg, #0F1F3D, #1A3263);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.auth-container {
+    display: flex;
+    width: 900px;
+    height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+    animation: fadeIn 0.6s ease;
+}
+
+/* LEFT SIDE */
+.auth-left {
+    flex: 1;
+    background: linear-gradient(135deg, #1A3263, #2C4F9E);
+    color: white;
+    padding: 70px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-left h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.auth-left p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #dbeafe;
+}
+
+/* RIGHT SIDE */
+.auth-right {
+    flex: 1;
+    background: #ffffff;
+    padding: 70px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-right h2 {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #1A3263;
+}
+
+/* FORM */
+.auth-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Inputs */
+.auth-right input {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    transition: 0.3s ease;
+    outline: none;
+}
+
+.auth-right input:focus {
+    border-color: #2C4F9E;
+    box-shadow: 0 0 0 3px rgba(44, 79, 158, 0.2);
+}
+
+/* Button */
+.auth-right button {
+    background: linear-gradient(135deg, #1A3263, #2C4F9E);
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.auth-right button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(26, 50, 99, 0.3);
+}
+
+/* Back link */
+.register-link {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #2C4F9E;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===============================
+   SIDEBAR LOGOUT
+================================ */
+
+.sidebar-logout {
+    position: absolute;
+    bottom: 30px;
+    left: 18px;
+    right: 18px;
+}
+
+.logout-btn {
+    width: 100%;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: #ffdddd;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 0, 0, 0.15);
+    color: #ffffff;
+}
+
+/* ===============================
+   FADE UP EFFECT
+================================ */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.hover-card {
+    transition: 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+}
+
+.table-row-hover:hover {
+    background-color: #f8f9fa;
+    transition: 0.2s;
+}
+
+.table-card {
+    background: #fff;
+}

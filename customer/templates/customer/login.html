@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'image/favicon_io/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/customer.css' %}">
+</head>
+<body class="auth-bg">
+<div class="loan-head fade-up">
+<div class="auth-container">
+
+    <!-- Left Welcome Section -->
+    <div class="auth-left">
+        <h1>Smart Finance</h1>
+        <p>Manage your loans easily and securely with our smart dashboard.</p>
+    </div>
+
+    <!-- Login Form -->
+    <div class="auth-box">
+        <h2>Customer Login</h2>
+        {% if messages %}
+    {% for message in messages %}
+        <p style="color:red;text-align:center;">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <input type="email" name="email" required>
+                <label>Email Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+
+            <button type="submit" class="btn-primary">Login</button>
+        </form>
+
+        <p class="auth-link">
+            Don’t have an account?
+            <a href="{% url 'register' %}">Register</a>
+        </p>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
