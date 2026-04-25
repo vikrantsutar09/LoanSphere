@@ -1,0 +1,141 @@
+{% extends "loan_head/base_loan_head.html" %}
+{% block title %}EMI Management{% endblock %}
+
+{% block content %}
+<div class="loan-head fade-up">
+
+<h3 class="page-anim-title mb-4">EMI Management</h3>
+
+<!-- ================= SUMMARY CARDS ================= -->
+<div class="row g-4 mb-4 text-center">
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-4 p-4 hover-card">
+            <div class="mb-2">
+                <i class="fa fa-layer-group fa-2x text-primary"></i>
+            </div>
+            <h6 class="text-muted">Total EMIs</h6>
+            <h3 class="fw-bold">{{ total_emis }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-4 p-4 hover-card">
+            <div class="mb-2">
+                <i class="fa fa-clock fa-2x text-warning"></i>
+            </div>
+            <h6 class="text-muted">Pending EMIs</h6>
+            <h3 class="fw-bold text-warning">{{ pending_emis }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-4 p-4 hover-card">
+            <div class="mb-2">
+                <i class="fa fa-check-circle fa-2x text-success"></i>
+            </div>
+            <h6 class="text-muted">Paid EMIs</h6>
+            <h3 class="fw-bold text-success">{{ paid_emis }}</h3>
+        </div>
+    </div>
+
+</div>
+
+<!-- ================= TABLE ================= -->
+<div class="table-card shadow-lg rounded-4 p-3">
+
+<table class="table table-hover align-middle text-center">
+
+<thead class="table-dark">
+<tr>
+    <th>#</th>
+    <th>Customer</th>
+    <th>Loan</th>
+    <th>EMI No</th>
+    <th>Amount</th>
+    <th>Due Date</th>
+    <th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for key, emis in grouped_emis.items %}
+
+<!-- 🔹 CUSTOMER HEADER -->
+<tr class="table-primary text-center">
+    <td colspan="7">
+        <strong>
+            <i class="fa fa-user"></i> {{ emis.0.loan.full_name }} |
+            <i class="fa fa-envelope"></i> {{ emis.0.loan.email }} |
+            <i class="fa fa-phone"></i> {{ emis.0.loan.mobile }}
+        </strong>
+    </td>
+</tr>
+
+{% for emi in emis %}
+
+<tr class="table-row-hover">
+
+    <td>{{ forloop.counter }}</td>
+
+    <td>
+        <strong>{{ emi.loan.full_name }}</strong><br>
+        <small class="text-muted">{{ emi.loan.email }}</small>
+    </td>
+
+    <td>
+        <span class="badge bg-info text-dark px-3 py-2">
+            {{ emi.loan.loan_type }}
+        </span>
+    </td>
+
+    <td>
+        <span class="badge bg-secondary px-3 py-2">
+            #{{ emi.emi_number }}
+        </span>
+    </td>
+
+    <td class="fw-bold text-primary">
+        ₹ {{ emi.amount|floatformat:2 }}
+    </td>
+
+    <td>
+        <span class="text-muted">
+            {{ emi.due_date }}
+        </span>
+    </td>
+
+    <td>
+        {% if emi.is_paid %}
+            <span class="badge bg-success px-3 py-2">
+                <i class="fa fa-check"></i> Paid
+            </span>
+        {% else %}
+            <span class="badge bg-warning text-dark px-3 py-2">
+                <i class="fa fa-hourglass-half"></i> Pending
+            </span>
+        {% endif %}
+    </td>
+
+</tr>
+
+{% endfor %}
+
+{% empty %}
+<tr>
+    <td colspan="7" class="text-center py-4">
+        No EMI records found
+    </td>
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}

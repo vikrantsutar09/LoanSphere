@@ -1,0 +1,27 @@
+{% extends 'customer/base_customer.html' %}
+
+{% block content %}
+
+<div class="loan-head fade-up">
+<h2 class="page-title">Customer Dashboard</h2>
+
+<div class="card-container">
+
+    <div class="dashboard-card">
+        <h4>Total Loans</h4>
+        <h1>{{ total_loans }}</h1>
+    </div>
+
+    <div class="dashboard-card">
+        <h4>Approved</h4>
+        <h1>{{ approved_loans }}</h1>
+    </div>
+
+    <div class="dashboard-card">
+        <h4>Pending</h4>
+        <h1>{{ pending_loans }}</h1>
+    </div>
+</div>
+</div>
+
+{% endblock %}

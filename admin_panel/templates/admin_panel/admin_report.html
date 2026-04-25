@@ -1,0 +1,167 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Admin Report{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid fade-in">
+
+    <h3 class="fw-bold mb-4">📊 Admin Report Dashboard</h3>
+
+    <!-- 🔍 FILTER -->
+    <div class="filter-box mb-4">
+
+        <form method="GET" class="row g-3">
+
+            <div class="col-md-3">
+                <input type="text" name="search" class="form-control"
+                       placeholder="🔍 Search..." value="{{ request.GET.search }}">
+            </div>
+
+            <div class="col-md-2">
+                <input type="date" name="start_date" class="form-control"
+                       value="{{ request.GET.start_date }}">
+            </div>
+
+            <div class="col-md-2">
+                <input type="date" name="end_date" class="form-control"
+                       value="{{ request.GET.end_date }}">
+            </div>
+
+            <div class="col-md-2">
+                <select name="category" class="form-control">
+                    <option value="">All Categories</option>
+                    {% for cat in all_categories %}
+                    <option value="{{ cat.id }}"
+                        {% if request.GET.category == cat.id|stringformat:"s" %}selected{% endif %}>
+                        {{ cat.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+
+            <div class="col-md-2">
+                <select name="type" class="form-control">
+                    <option value="">All Data</option>
+                    <option value="loan">Loan Heads</option>
+                    <option value="category">Categories</option>
+                    <option value="package">Packages</option>
+                    <option value="contact">Contacts</option>
+                </select>
+            </div>
+
+            <div class="col-md-1 d-grid">
+                <button class="btn btn-primary btn-modern">Go</button>
+            </div>
+
+        </form>
+
+        <div class="mt-2 d-flex gap-2">
+
+    <!-- RESET -->
+    <a href="{% url 'admin_panel:admin_report' %}"
+       class="btn btn-outline-secondary btn-sm">
+        Reset
+    </a>
+
+    <!-- PDF DOWNLOAD -->
+    <a href="{% url 'admin_panel:admin_report_pdf' %}?{{ request.GET.urlencode }}"
+       class="btn btn-danger btn-sm">
+
+        <i class="fa fa-file-pdf"></i> Download PDF
+
+    </a>
+
+</div>
+
+    </div>
+
+    <!-- ================= LOAN HEAD ================= -->
+    {% if not data_type or data_type == "loan" %}
+    <div class="card report-card mb-4">
+        <div class="report-header">Loan Heads</div>
+        <div class="card-body">
+            <table class="table align-middle">
+                <tr><th>#</th><th>Name</th></tr>
+                {% for h in heads %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ h.name }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="2">No data</td></tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- ================= CATEGORY ================= -->
+    {% if not data_type or data_type == "category" %}
+    <div class="card report-card mb-4">
+        <div class="report-header">Categories</div>
+        <div class="card-body">
+            <table class="table align-middle">
+                <tr><th>#</th><th>Name</th><th>Description</th></tr>
+                {% for c in categories %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.description }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="3">No data</td></tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- ================= PACKAGE ================= -->
+    {% if not data_type or data_type == "package" %}
+    <div class="card report-card mb-4">
+        <div class="report-header">Packages</div>
+        <div class="card-body">
+            <table class="table align-middle">
+                <tr><th>#</th><th>Title</th><th>Category</th></tr>
+                {% for p in packages %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ p.title }}</td>
+                    <td>{{ p.category.name }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="3">No data</td></tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- ================= CONTACT ================= -->
+    {% if not data_type or data_type == "contact" %}
+    <div class="card report-card mb-4">
+        <div class="report-header">Contact Messages</div>
+        <div class="card-body">
+            <table class="table align-middle">
+                <tr>
+                    <th>Name</th><th>Email</th><th>Message</th><th>Date</th>
+                </tr>
+                {% for con in contacts %}
+                <tr>
+                    <td>{{ con.name }}</td>
+                    <td>{{ con.email }}</td>
+                    <td>{{ con.message }}</td>
+                    <td>{{ con.created_at|date:"d M Y" }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4">No data</td></tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

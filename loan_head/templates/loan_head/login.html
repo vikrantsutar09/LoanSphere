@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Head Login</title>
+    <link rel="icon" type="image/png" href="{% static 'image/favicon_io/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/loan_head.css' %}">
+</head>
+<body class="auth-bg">
+<div class="loan-head fade-up">
+<div class="auth-container">
+
+    <!-- LEFT SIDE -->
+    <div class="auth-left">
+        <h1>Smart Finance</h1>
+        <p>Manage all loan approvals, customer requests and EMI tracking securely.</p>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+        <h2>Loan Head Login</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button type="submit">Login</button>
+
+            {% comment %} <p class="register-link">
+                Back to <a href="{% url 'loan_head:register' %}">Register</a>
+            </p> {% endcomment %}
+        </form>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

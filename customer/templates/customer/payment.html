@@ -1,0 +1,61 @@
+{% extends 'customer/base_customer.html' %}
+
+{% block content %}
+
+<div class="pay-wrapper">
+
+    <!-- LEFT SIDE (QR SECTION) -->
+    <div class="pay-left">
+        <h3>Scan & Pay</h3>
+
+        <div class="qr-box">
+            <img src="/static/image/QR.png" class="qr-img">
+        </div>
+
+        <p class="scan-text">Use any UPI app to scan</p>
+
+        <div class="amount-highlight">
+            ₹ {{ emi.amount|floatformat:2 }}
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE (OPTIONS) -->
+    <div class="pay-right">
+
+        <h3>Other Payment Options</h3>
+
+        <!-- UPI APPS -->
+        <div class="option-box">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <div>
+                <h4>Pay via UPI Apps</h4>
+                <p>Google Pay / PhonePe / Paytm</p>
+            </div>
+        </div>
+
+        <!-- UPI ID -->
+        <div class="option-box upi-id-box">
+
+            <form method="POST" action="{% url 'process_payment' emi.id %}">
+                {% csrf_token %}
+
+                <!-- UPI INPUT -->
+                <div class="mb-3">
+                    <label>
+                        <i class="fa fa-credit-card"></i> Enter UPI ID
+                    </label>
+                    <input type="text" name="upi_id" class="form-control" placeholder="example@upi" required>
+                </div>
+
+                <!-- BUTTON -->
+                <button type="submit" class="btn  w-100">
+                    <i class="fa fa-paper-plane" style="color: #fff; font-size: 20px;"></i> Pay Now
+                </button>
+        </form>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

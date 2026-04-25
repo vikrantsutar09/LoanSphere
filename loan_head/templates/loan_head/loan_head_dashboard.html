@@ -1,0 +1,67 @@
+{% extends "loan_head/base_loan_head.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="loan-head fade-up">
+<h3 class="page-anim-title mb-4">Dashboard Overview</h3>
+
+<div class="row g-4">
+
+    <!-- TOTAL REQUESTS -->
+    <div class="col-md-4">
+        <div class="metric-box">
+
+            <div class="metric-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div class="metric-content">
+                <span>Total Requests</span>
+                <h2>{{ total_requests }}</h2>
+            </div>
+
+            <div class="metric-glow"></div>
+
+        </div>
+    </div>
+
+    <!-- DOCUMENTS PENDING -->
+    <div class="col-md-4">
+    <div class="metric-box metric-danger">
+
+        <div class="metric-icon">
+            <i class="fa-solid fa-circle-xmark"></i>
+        </div>
+
+        <div class="metric-content">
+            <span>Rejected Documents</span>
+            <h2>{{ rejected_documents }}</h2>
+        </div>
+
+        <div class="metric-glow"></div>
+
+    </div>
+</div>
+
+    <!-- APPROVED -->
+    <div class="col-md-4">
+        <div class="metric-box metric-success">
+
+            <div class="metric-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="metric-content">
+                <span>Approved Loans</span>
+               <h2>{{ approved_loans }}</h2>
+            </div>
+
+            <div class="metric-glow"></div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
